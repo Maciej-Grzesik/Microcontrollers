@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  c:\users\maciej\Documents\Atmel Studio\7.0\AssemblerApplication11\AssemblerApplication11\main.asm Wed Mar 06 14:14:28 2024
+AVRASM ver. 2.2.8  C:\Users\Maciej\Desktop\Microcontrollers\Lista 1\2\AssemblerApplication11\main.asm Wed Mar 06 15:32:15 2024
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m128Adef.inc'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m128Adef.inc'
@@ -1233,14 +1233,14 @@ AVRASM ver. 2.2.8  c:\users\maciej\Documents\Atmel Studio\7.0\AssemblerApplicati
 000000 c04d                      rjmp start
                                  .org 0x46
                                  
-000046 7fff
-000047 3fbf
-000048 5fdf
-000049 1f9f
-00004a 6fef
-00004b 2faf
-00004c 4fcf
-00004d 1f8f                      data: .db  0b11111111, 0b01111111, 0b10111111, 0b00111111, 0b11011111, 0b01011111, 0b10011111, 0b00011111, 0b11101111, 0b01101111, 0b10101111, 0b00101111, 0b11001111, 0b01001111, 0b10001111, 0b000011111
+000046 0100
+000047 0302
+000048 0504
+000049 0706
+00004a 0908
+00004b 0b0a
+00004c 0d0c
+00004d 0f0e                      data: .db 0b0000, 0b0001, 0b0010, 0b0011, 0b0100, 0b0101, 0b0110, 0b0111, 0b1000, 0b1001, 0b1010, 0b1011, 0b1100, 0b1101, 0b1110, 0b1111
                                  start:
 00004e ef0f                          ldi r16, 0xff
 00004f bb04                          out ddrc, r16
@@ -1259,26 +1259,22 @@ AVRASM ver. 2.2.8  c:\users\maciej\Documents\Atmel Studio\7.0\AssemblerApplicati
 000057 b326                          in r18, pinb
                                  
 000058 3020                          cpi r18, 0
-000059 f049                          breq off 
+000059 f039                          breq off 
                                  
 00005a 302f                          cpi r18, 15
-00005b f43c                          brge off ; If buttons PB4-PB7 pressed, turn off display
+00005b f42c                          brge off 
                                  
-00005c 2f32                          mov r19, r18 ; Copy button state to r19
+00005c 0fe2                          add r30, r18
+00005d 9104                          lpm r16, z
+00005e 2701                      	eor r16, r17
+00005f bb05                          out portc, r16
                                  
-00005d fd37                          sbrc r19, 7 ; Check if PB7 is pressed
-00005e 0f22                          lsl r18      ; Shift data index to access the next byte
-                                 
-00005f 0fe2                          add r30, r18 ; Add data index to Z register
-000060 9104                          lpm r16, Z   ; Load data from program memory
-000061 bb05                          out portc, r16 ; Output data to port C
-                                 
-000062 cff2                          rjmp main
+000060 cff4                          rjmp main
                                  
                                  off:
-000063 ef0f                          ldi r16, 0xff
-000064 bb05                          out portc, r16
-000065 cfef                          rjmp main
+000061 ef0f                          ldi r16, 0xff
+000062 bb05                          out portc, r16
+000063 cff1                          rjmp main
 
 
 RESOURCE USE INFORMATION
@@ -1298,10 +1294,10 @@ counted separately from r26..r31 here.
 "ATmega128A" register use summary:
 x  :   0 y  :   0 z  :   1 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16:  10 r17:   1 r18:   6 r19:   2 r20:   0 
+r13:   0 r14:   0 r15:   0 r16:  11 r17:   2 r18:   4 r19:   0 r20:   0 
 r21:   0 r22:   0 r23:   0 r24:   0 r25:   0 r26:   0 r27:   0 r28:   0 
 r29:   0 r30:   2 r31:   1 
-Registers used: 7 out of 35 (20.0%)
+Registers used: 6 out of 35 (17.1%)
 
 "ATmega128A" instruction use summary:
 .lds  :   0 .sts  :   0 adc   :   0 add   :   1 adiw  :   0 and   :   0 
@@ -1312,24 +1308,24 @@ brne  :   0 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0
 brvs  :   0 bset  :   0 bst   :   0 call  :   0 cbi   :   0 cbr   :   0 
 clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   0 cls   :   0 
 clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   0 cpc   :   0 
-cpi   :   2 cpse  :   0 dec   :   0 elpm  :   0 eor   :   0 fmul  :   0 
+cpi   :   2 cpse  :   0 dec   :   0 elpm  :   0 eor   :   1 fmul  :   0 
 fmuls :   0 fmulsu:   0 icall :   0 ijmp  :   0 in    :   1 inc   :   0 
 jmp   :   0 ld    :   0 ldd   :   0 ldi   :   7 lds   :   0 lpm   :   2 
-lsl   :   1 lsr   :   0 mov   :   1 movw  :   0 mul   :   0 muls  :   0 
+lsl   :   0 lsr   :   0 mov   :   0 movw  :   0 mul   :   0 muls  :   0 
 mulsu :   0 neg   :   0 nop   :   0 or    :   0 ori   :   0 out   :   5 
 pop   :   0 push  :   0 rcall :   0 ret   :   0 reti  :   0 rjmp  :   3 
 rol   :   0 ror   :   0 sbc   :   0 sbci  :   0 sbi   :   0 sbic  :   0 
-sbis  :   0 sbiw  :   0 sbr   :   0 sbrc  :   1 sbrs  :   0 sec   :   0 
+sbis  :   0 sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   0 sec   :   0 
 seh   :   0 sei   :   0 sen   :   0 ser   :   0 ses   :   0 set   :   0 
 sev   :   0 sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 
 sts   :   0 sub   :   0 subi  :   0 swap  :   0 tst   :   0 wdr   :   0 
 
-Instructions used: 12 out of 114 (10.5%)
+Instructions used: 10 out of 114 (8.8%)
 
 "ATmega128A" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x0000cc     50     16     66  131072   0.1%
+[.cseg] 0x000000 0x0000c8     46     16     62  131072   0.0%
 [.dseg] 0x000100 0x000100      0      0      0    4096   0.0%
 [.eseg] 0x000000 0x000000      0      0      0    4096   0.0%
 

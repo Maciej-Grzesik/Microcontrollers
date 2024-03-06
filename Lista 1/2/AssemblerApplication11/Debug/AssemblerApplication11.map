@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  c:\users\maciej\Documents\Atmel Studio\7.0\AssemblerApplication11\AssemblerApplication11\main.asm Wed Mar 06 14:14:28 2024
+AVRASM ver. 2.2.8  C:\Users\Maciej\Desktop\Microcontrollers\Lista 1\2\AssemblerApplication11\main.asm Wed Mar 06 15:32:15 2024
 
 
 EQU  SIGNATURE_000 0000001e
@@ -870,4 +870,4 @@ EQU  INT_VECTORS_SIZE 00000046
 CSEG start        0000004e
 CSEG data         00000046
 CSEG main         00000055
-CSEG off          00000063
+CSEG off          00000061

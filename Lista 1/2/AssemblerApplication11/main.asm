@@ -9,7 +9,7 @@
 rjmp start
 .org 0x46
 
-data: .db  0b11111111, 0b01111111, 0b10111111, 0b00111111, 0b11011111, 0b01011111, 0b10011111, 0b00011111, 0b11101111, 0b01101111, 0b10101111, 0b00101111, 0b11001111, 0b01001111, 0b10001111, 0b000011111
+data: .db 0b0000, 0b0001, 0b0010, 0b0011, 0b0100, 0b0101, 0b0110, 0b0111, 0b1000, 0b1001, 0b1010, 0b1011, 0b1100, 0b1101, 0b1110, 0b1111
 start:
     ldi r16, 0xff
     out ddrc, r16
@@ -31,16 +31,12 @@ main:
     breq off 
 
     cpi r18, 15
-    brge off ; If buttons PB4-PB7 pressed, turn off display
+    brge off 
 
-    mov r19, r18 ; Copy button state to r19
-
-    sbrc r19, 7 ; Check if PB7 is pressed
-    lsl r18      ; Shift data index to access the next byte
-
-    add r30, r18 ; Add data index to Z register
-    lpm r16, Z   ; Load data from program memory
-    out portc, r16 ; Output data to port C
+    add r30, r18
+    lpm r16, z
+	eor r16, r17
+    out portc, r16
 
     rjmp main
 
