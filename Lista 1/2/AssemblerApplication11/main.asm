@@ -27,16 +27,20 @@ main:
 
     in r18, pinb
 
-    cpi r18, 0
+    cpi r18, 0xff
     breq off 
 
+
+	eor r18, r16
     cpi r18, 15
     brge off 
 
+
     add r30, r18
-    lpm r16, z
-	eor r16, r17
-    out portc, r16
+    lpm r20, z
+	eor r20, r16
+
+    out portc, r20
 
     rjmp main
 

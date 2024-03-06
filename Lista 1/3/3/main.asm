@@ -36,17 +36,17 @@ main:
 	rjmp main
 	
 	checkState:
-		cpi r20, 4
+		cpi r20, $fb
 		breq addToCounter
 
-		cpi r20, 64
+		cpi r20, $bf
 		breq substractFromCounter
 		rjmp main
 
 
 	addToCounter:
 		sec 
-		rol r18
+		ror r18
 		out portc, r18
 		rjmp main
 
