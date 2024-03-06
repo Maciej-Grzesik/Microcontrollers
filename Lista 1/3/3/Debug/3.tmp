@@ -1,0 +1,33 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega128A"</DEVICE>
+ <WORKING_DIR>C:\Users\Maciej\Desktop\Microcontrollers\Lista 1\3\3\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\Maciej\Desktop\Microcontrollers\Lista 1\3\3\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m128Adef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\Maciej\Desktop\Microcontrollers\Lista 1\3\3\Debug\3.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>3.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>3.map</FILE>
+  <FILE>3.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <initialize><FILE>C:\Users\Maciej\Desktop\Microcontrollers\Lista 1\3\3\main.asm</FILE><LINE>14</LINE></initialize>
+  <main><FILE>C:\Users\Maciej\Desktop\Microcontrollers\Lista 1\3\3\main.asm</FILE><LINE>28</LINE></main>
+  <delay><FILE>C:\Users\Maciej\Desktop\Microcontrollers\Lista 1\3\3\main.asm</FILE><LINE>59</LINE></delay>
+  <checkState><FILE>C:\Users\Maciej\Desktop\Microcontrollers\Lista 1\3\3\main.asm</FILE><LINE>38</LINE></checkState>
+  <addToCounter><FILE>C:\Users\Maciej\Desktop\Microcontrollers\Lista 1\3\3\main.asm</FILE><LINE>47</LINE></addToCounter>
+  <substractFromCounter><FILE>C:\Users\Maciej\Desktop\Microcontrollers\Lista 1\3\3\main.asm</FILE><LINE>53</LINE></substractFromCounter>
+  <loop><FILE>C:\Users\Maciej\Desktop\Microcontrollers\Lista 1\3\3\main.asm</FILE><LINE>61</LINE></loop>
+ </LABELS>
+</ASSEMBLER_INFO>
