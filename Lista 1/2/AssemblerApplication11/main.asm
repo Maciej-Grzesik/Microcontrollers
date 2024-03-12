@@ -18,8 +18,9 @@ start:
     ldi r16, 0x00
     out ddrb, r16
 
-    ldi r16, 0xf0
+    ldi r16, 0x0f
     ldi r17, 0xff
+	ldi r21, 0xf0
 
 main:
     ldi zl, low(data*2)
@@ -28,17 +29,17 @@ main:
     in r18, pinb
 
     cpi r18, 0xff
-    breq off 
+    breq off
 
-
-	eor r18, r16
-    cpi r18, 15
-    brge off 
-
+	eor r18, r17
+	cpi r18, 0x10
+	brge off
 
     add r30, r18
     lpm r20, z
-	eor r20, r16
+	eor r20, r17
+	cpi r20, 0x00
+	breq off
 
     out portc, r20
 
